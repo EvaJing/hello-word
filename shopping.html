@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商品展览</title>
+		<style>
+			.wrap{
+			
+			    width:900px;
+			    
+			    margin:0 auto;
+			    
+			    overflow: hidden;
+				
+				 position: relative;
+			}	
+			#left{
+			
+			            width:200px;			
+			            height:130px;			
+			            background: #ffffff;
+						float: left;	
+						text-align: center				
+											
+			}
+			#right{
+			
+			            width:300px;			
+			            height:130px;			
+			            background: #ffffff;
+						float: left;
+						position: absolute;
+						top: 60%;  
+						left: 25%;
+						margin-top: -25px;  
+						margin-left: -25px; 
+			}		
+			#add{
+			
+			            width:250px;			
+			            height:130px;			
+			            background: #ffffff;
+						float: right;
+						position: absolute;
+						top: 35%;  
+						right: 5%;
+						margin-top: -25px;  
+						margin-right: -25px; 
+						 
+			}		 
+		</style>
+		
+		<style type="text/css">
+		  .octopus-pc-dotdv2 {
+		      margin: 40px 0px;
+		      min-width: 650px;
+		      max-width: 2573px;
+		      background-color: #fff;
+		  }
+		  .octopus-pc-dotdv2-title {
+		      margin-bottom: 0 !important;
+		  }
+		  .octopus-pc-dotdv2-title-seeMore{
+		      margin-left: 10px !important;
+		  }
+		  .octopus-pc-dotdv2-content {
+		      margin-top: 10px;
+		  }
+		  .octopus-pc-dotdv2-list {
+		      height: 384px;
+		      overflow: hidden;
+		  }
+		  .octopus-pc-dotdv2-item {
+		      max-width: 297px;
+		      min-width: 198px;
+		      height: 384px;
+		      float: left;
+		      text-align: center;
+		      position: relative;
+		      padding: 0 2px 0 0 !important;
+		      margin: 0 !important
+		  }
+		  .octopus-pc-dotdv2-item-block {
+		      width: 100%;
+		      height: 100%;
+		      background-color: #FFF;
+		  }
+		  .octopus-pc-dotdv2 a:hover {
+		      text-decoration: none !important;
+		  }
+		  .octopus-pc-dotdv2-item-image-section {
+		      display: flex;
+		      align-items: center;
+		      position: relative;
+		      margin: 0px;
+		      background-color: #FFF;
+		      height: 250px;
+		  }
+		  .octopus-pc-dotdv2-item-hue-shield {
+		      margin: 0px;
+		      width: 100%;
+		      top: 0;
+		      left: 0;
+		      bottom: 0;
+		      right: 0;
+		      position: absolute;
+		      z-index: 1;
+		      background: -webkit-radial-gradient(rgba(0,0,0,0), rgba(0,0,0,0.01), rgba(0,0,0,0.05), rgba(0,0,0,0.05));
+		      background: -o-radial-gradient(rgba(0,0,0,0), rgba(0,0,0,0.01), rgba(0,0,0,0.05), rgba(0,0,0,0.05));
+		      background: -moz-radial-gradient(rgba(0,0,0,0), rgba(0,0,0,0.01), rgba(0,0,0,0.05), rgba(0,0,0,0.05));
+		      background: radial-gradient(rgba(0,0,0,0), rgba(0,0,0,0.01), rgba(0,0,0,0.05), rgba(0,0,0,0.05));
+		  }
+		  .octopus-pc-dotdv2-item-image {
+		      max-height: 230px;
+		      margin: 10px auto 10px auto;
+		  }
+		  .octopus-pc-dotdv2-item-info {
+		      background-color: #FAFAFA;
+		      padding-top: 10px;
+		      padding-bottom: 15px !important;
+		      height: 134px;
+		      text-align: left;
+		  }
+		  .octopus-pc-dotdv2-price-section {
+		      margin-top: 10px !important;
+		      margin-bottom: 10px !important;
+		      height: 45px;
+		      max-height: 45px;
+		      width: 100%;
+		      padding: 0 24px;
+		      overflow: hidden;
+		  }
+		  .octopus-pc-dotdv2-title-section {
+		      margin-top: 10px !important;
+		      margin-bottom: 10px !important;
+		      height: 20px;
+		      width: 100%;
+		      padding: 0 24px;
+		      overflow: hidden;
+		      white-space: nowrap;
+		      text-overflow: ellipsis;
+		      color: #111 !important;
+		  }
+		  .octopus-pc-dotdv2-time-section {
+		      margin-top: 10px !important;
+		      margin-bottom: 10px !important;
+		      height: 20px;
+		      width: 100%;
+		      padding: 0 24px;
+		      overflow: hidden;
+		      white-space: nowrap;
+		      text-overflow: ellipsis;
+		      color: #555 !important;
+		  }
+		</style>
+		
+		<style type="text/css">
+			
+			/*设置 a 标签的css样式*/
+			.page-normal a{
+				border: 1px solid #ff6500;
+				padding: 5px 7px;
+				color: #ff6500;
+				margin-left: 20px;/*设置标签 a 之间的间隔*/
+				text-decoration: none;/*去除页码数字下面的下划线*/
+			}
+			/*设置鼠标经过时 a 标签的css样式*/
+			.page-normal a:hover{
+				background-color: #ffbe94;
+			}
+			
+			/*设置整个div的css样式,该样式主要用于设置网页内的省略号 …… 的样式，并且同时设置内容居中显示*/
+			.page-normal{
+				color: #ff6500;
+				text-align: center;
+			}
+			
+			/*设置当前页面的css样式*/
+			.page-normal .page-current{
+				color: #ffffff;
+				background-color: #ff6500;
+			}
+			
+			/*设置左单括号 < 的css样式*/
+			.page-normal .page-prev{
+				color: #ffe3c6;
+			}
+			
+			/*进行代码优化，将不同css样式中共有的属性放在一起，有助于提高运行效率*/
+			.page-normal a, .page-normal a:hover, .page-normal .page-prev, .page-normal .page-current{
+				border: 1px solid #ff6500;
+				padding: 5px 7px;
+			}
+			
+		</style>
+		
+	</head>
+	<body>		
+		<!---->	
+		<div class="wrap">
+			<!--logo位置-->
+			<div id="left">						
+				<img src="logo.jpg"height="130px" width="130px" title="商品展示"/>
+			</div>
+			<!--搜索框位置-->
+			<div id="right">
+				<form action="/sem/tbsearch" id="J_searchForm" target="_blank">
+				
+						<input type="hidden" name="refpid" value="mm_26632258_3504122_32538762">
+						<input type="hidden" name="clk1" value="252b145964dbe062137f7a16a68970de">
+						<span class="text-wrap">
+							<input class="text ks-combobox-input txt-focus" placeholder="请输入要搜索的商品" id="q" name="keyword" accesskey="s" autocomplete="off" x-webkit-speech="" x-webkit-grammar="builtin:translate">
+						</span>
+						<input type="hidden" name="page" value="0"> 
+						<input type="submit" class="submit" value="搜索" data-spm-click="gostr=/zz;locaid=dsearch">
+				</form>		
+			</div>
+			<!--用户信息位置-->
+			<div id="add">
+				<ul class="site-nav-bd-l" id="J_SiteNavBdL" data-spm-ab="1">
+					<li class="site-nav-menu site-nav-login" id="J_SiteNavLogin" data-name="login" data-spm="754894437">
+						<div class="site-nav-menu-hd"> 
+							<a href="#" target="_top" class="h"><span>会员登录</span></a>
+						</div>
+					</li>
+					
+					<li class="site-nav-menu site-nav-asign" id="J_SiteNavMobile" data-name="asign" data-spm="1997563273">
+						<div class="site-nav-menu-hd">
+							<a href="#" target="_top"><span>免费注册</span></a>
+						</div>
+					</li>
+			  				 
+					<li class="site-nav-menu site-nav-view" id="J_SiteNavMobile" data-name="view" data-spm="19975632">
+						<div class="site-nav-menu-hd">
+							<a href="#" target="_top"><span>下载APP</span></a>
+						</div>
+					</li>				
+				</ul>
+			</div>
+		</div>	
+		
+		
+		<!--分界线-->
+		<hr class="slot-hr desktop-1-hr">
+		
+		
+		<!--综合信息位置-->
+		<div class="desktop-row gw-widget-instrument" id="desktop-1" style="margin-left: 0px;" data-cel-widget="desktop-0">		
+		<!--<style>
+		.desktop-row   {margin-top:20px;}
+		#desktop-1 {margin-top:0 !important;margin-bottom:0 !important;}
+		</style>
+		-->
+		<link type="text/css" href="gw-iteration-show._CB482308834_.css" rel="stylesheet"><!--非常重要！css确定了综合信息和所有商品两大模块的布局-->
+		<div class="gw-iter-center" id="gw-iter-center" style="width: 1320px;">
+			<div id="gw-iter-block" style="display: inline;">
+				<!--第一子块-->
+				<div class="gw-iter-content" id="gw-iter-content-1" style="width: 327.5px; display: inline;"> 
+					<!--第一子块的上头部-->
+					<div class="gw-iter-header" id="gw-iter-header-1" style="width: 327.5px;">    
+						<div class="gw-iter-title" id="gw-iter-title-1" style="width: 327.5px;">      
+						<p class="gw-iter-title-font" id="gw-iter-title-font-1" style="margin-left: 29.8px;">        
+							<a class="gw-iter-title-href" href="#" target="_blank">         
+								<span class="gw-iter-title-black">热门推荐</span>                   
+								<span class="gw-iter-title-orange">服装配饰</span>       
+							</a>  
+						</p>   
+						</div>   
+					</div> 
+					<!--第一子块的下内容-->  					
+					<div style="text-align:center">      
+						<a href="#" target="_blank">     
+						<img class="gw-iter-backimg" 
+						src="brand-1.jpg" 
+						style="height:134px;max-width:263px;">    
+						</a>
+					</div>
+				</div>
+				
+				
+				<!--第一竖分隔线-->
+				<div class="gw-iter-division" id="gw-iter-division-2" style="display: inline;">
+					<img class="gw-iter-division-img" src="line.png" aria-hidden="true" alt="">
+				</div>
+				
+				
+				<!--第二子块-->		
+				<div class="gw-iter-content" id="gw-iter-content-2" style="width: 327.5px; display: inline;">
+					<style>a.gw-iter-priceItem:link,a.gw-iter-priceItem:visited,a.gw-iter-priceItem{font-family: 'Arial Negreta', 'Arial';color: #B12704;}a.gw-iter-priceItem:hover{color:#ff8c00;cursor:pointer;text-decoration:none;}
+					</style> 
+					<!--第二子块的上头部-->
+					<div class="gw-iter-header" id="gw-iter-header-2" style="width: 327.5px;">   
+						<div class="gw-iter-title" id="gw-iter-title-2" style="width: 327.5px;">         
+										    <p class="gw-iter-title-font" id="gw-iter-title-font-2" style="margin-left: 29.8px;">    
+											<a class="gw-iter-title-href" href="#" target="_blank">      
+											<span class="gw-iter-title-black">火爆热销</span>   
+											<span class="gw-iter-title-orange">家具厨具</span>     
+											</a>      
+											</p> 
+						</div>   
+					</div>   
+					<!--第二子块的下部靠左-->																					
+					<div class="gw-iter-detail" id="gw-iter-detail-2" style="margin-left: 29.8px; width: 134.4px;">       
+						<p class="gw-iter-proItem">           
+						<span class="gw-iter-proTitle">近期好价</span>      
+						</p>    
+						<a href="#" class="gw-iter-priceItem" target="_blank">           
+						<span class="gw-iter-priceSymbol">¥</span>           
+						<span class="gw-iter-priceNumber">240.89</span>       </a>       
+						<p class="gw-iter-anchorItem">       
+						<a href="" target="_blank">               
+						<img class="gw-iter-anchorImg" alt="continue to" src="arrow.png">              
+						<span>立即查看</span>           
+						</a>    
+						</p>   
+					</div>
+					<!--第二子块的下部靠右-->   
+					<div class="gw-iter-img" id="gw-iter-img-2" style="right: 19.8px;">     
+						<a href="#" class="gw-iter-img-a" id="gw-iter-img-a-2" target="_blank" aria-label="Click here to check details">    
+						<img src="rank-1.jpg" class="gw-iter-img-detail" id="gw-iter-img-detail-2" alt="detail image">       
+						</a>   
+					</div>
+				</div>
+				
+				
+				<!--第二竖分隔线-->
+				<div class="gw-iter-division" id="gw-iter-division-2" style="display: inline;">
+					<img class="gw-iter-division-img" src="line.png" aria-hidden="true" alt="">
+				</div>
+				
+					
+				<!--第三子块-->
+				<div class="gw-iter-content" id="gw-iter-content-1" style="width: 327.5px; display: inline;"> 
+					<!--第三子块的上头部-->
+					<div class="gw-iter-header" id="gw-iter-header-1" style="width: 327.5px;">    
+						<div class="gw-iter-title" id="gw-iter-title-1" style="width: 327.5px;">      
+						<p class="gw-iter-title-font" id="gw-iter-title-font-1" style="margin-left: 29.8px;">        
+							<a class="gw-iter-title-href" href="#" target="_blank">         
+								<span class="gw-iter-title-black">品牌精选</span>                   
+								<span class="gw-iter-title-orange">手机数码</span>       
+							</a>  
+						</p>   
+						</div>   
+					</div> 
+					<!--第三子块的下内容-->  					
+					<div style="text-align:center">      
+						<a href="" target="_blank">     
+						<img class="gw-iter-backimg" 
+						src="brand-2.jpg" 
+						style="height:134px;max-width:263px;">    
+						</a>
+					</div>
+				</div>
+				
+				
+				<!--第三竖分隔线-->
+				<div class="gw-iter-division" id="gw-iter-division-2" style="display: inline;">
+					<img class="gw-iter-division-img" src="line.png" aria-hidden="true" alt="">
+				</div>
+				
+				
+				<!--第四子块-->
+				<div class="gw-iter-content" id="gw-iter-content-2" style="width: 327.5px; display: inline;">
+					<style>a.gw-iter-priceItem:link,a.gw-iter-priceItem:visited,a.gw-iter-priceItem{font-family: 'Arial Negreta', 'Arial';color: #B12704;}a.gw-iter-priceItem:hover{color:#ff8c00;cursor:pointer;text-decoration:none;}
+					</style> 
+					<!--第四子块的上头部-->
+					<div class="gw-iter-header" id="gw-iter-header-2" style="width: 327.5px;">   
+						<div class="gw-iter-title" id="gw-iter-title-2" style="width: 327.5px;">         
+										    <p class="gw-iter-title-font" id="gw-iter-title-font-2" style="margin-left: 29.8px;">    
+											<a class="gw-iter-title-href" href="#" target="_blank">      
+											<span class="gw-iter-title-black">新品抢鲜</span>   
+											<span class="gw-iter-title-orange">运动户外</span>     
+											</a>      
+											</p> 
+						</div>   
+					</div>   
+					<!--第四子块的下部靠左-->																					
+					<div class="gw-iter-detail" id="gw-iter-detail-2" style="margin-left: 29.8px; width: 134.4px;">       
+						<p class="gw-iter-proItem">           
+						<span class="gw-iter-proTitle">低至五折</span>      
+						</p>    
+						<a href="#" class="gw-iter-priceItem" target="_blank">           
+						<span class="gw-iter-priceSymbol">¥</span>           
+						<span class="gw-iter-priceNumber">107.55</span>       </a>       
+						<p class="gw-iter-anchorItem">           
+						<a href="#" target="_blank">               
+						<img class="gw-iter-anchorImg" alt="continue to" src="arrow.png">              
+						<span>立即查看</span>           
+						</a>    
+						</p>   
+					</div>
+					<!--第二子块的下部靠右-->   
+					<div class="gw-iter-img" id="gw-iter-img-2" style="right: 19.8px;">     
+						<a href="#" class="gw-iter-img-a" id="gw-iter-img-a-2" target="_blank" aria-label="Click here to check details">    
+						<img src="rank-2.jpg" class="gw-iter-img-detail" id="gw-iter-img-detail-2" alt="detail image">       
+						</a>   
+					</div>
+				</div>
+				
+		    </div>
+		</div>
+		</div>  
+	
+		<!--全部商品-->
+		<div class="desktop-row gw-widget-instrument" id="desktop-2" data-cel-widget="desktop-1">
+
+			<div class="a-section octopus-pc-dotdv2 octopus-widget-dotdv2-36900420-c328-486b-a7b7-74e5959ad6a7">
+			<!--头部标题-->			
+			<div class="a-section octopus-pc-dotdv2-title">
+		          <span class="a-size-extra-large a-color-base a-text-bold" style="font-weight: 800;font-size: large;">&nbsp &nbsp &nbsp  全部商品</span>		          		                
+		    </div>
+			<!--下部商品陈列-->
+		    <div class="a-section octopus-pc-dotdv2-content">		          
+		        <ul class="a-unordered-list a-nostyle a-horizontal a-spacing-none octopus-pc-dotdv2-list">		                      
+		            <!--第一件商品-->
+					<li class="octopus-pc-dotdv2-item octopus-pc-dotdv2-item-GS_DOTD" style="width: 216px; padding-right: 2px;"><span class="a-list-item">
+		                <div class="a-section a-spacing-none octopus-pc-dotdv2-item-block">
+		                <a class="a-link-normal octopus-pc-dotdv2-item-link" title="亚瑟士运动鞋" href="#">
+		                    <div class="a-section octopus-pc-dotdv2-item-image-section">
+		                        <div class="a-section octopus-pc-dotdv2-item-hue-shield">
+		                        </div>
+		                        <img alt="" src="shop-1.jpg" class="octopus-pc-dotdv2-item-image">
+		                    </div>
+							<div class="a-section octopus-pc-dotdv2-item-info">
+								<div class="a-section a-spacing-none octopus-pc-dotdv2-price-section">
+								<span class="a-size-medium a-color-price">￥311.11 - ￥772.66</span>
+								</div>
+								<div class="a-section a-spacing-none octopus-pc-dotdv2-title-section">
+								<span class="a-size-medium octopus-pc-dotdv2-title-text a-text-bold">亚瑟士运动鞋</span>
+								</div>
+		                    </div>
+		                </a>
+		                </div>		                      
+					</span></li>
+		            <!--第二件商品-->      
+		            <li class="octopus-pc-dotdv2-item octopus-pc-dotdv2-item-GS_DOTD" style="width: 216px; padding-right: 2px;"><span class="a-list-item">
+		                <div class="a-section a-spacing-none octopus-pc-dotdv2-item-block">
+		                <a class="a-link-normal octopus-pc-dotdv2-item-link" title="华伦天奴等商务包" href="#">
+		                    <div class="a-section octopus-pc-dotdv2-item-image-section">
+		                        <div class="a-section octopus-pc-dotdv2-item-hue-shield">
+		                        </div>
+		                        <img alt="" src="shop-2.jpg" class="octopus-pc-dotdv2-item-image">
+		                    </div>
+		            		<div class="a-section octopus-pc-dotdv2-item-info">
+		            			<div class="a-section a-spacing-none octopus-pc-dotdv2-price-section">
+		            			<span class="a-size-medium a-color-price">￥74.54 - ￥3426.72</span>
+		            			</div>
+		            			<div class="a-section a-spacing-none octopus-pc-dotdv2-title-section">
+		            			<span class="a-size-medium octopus-pc-dotdv2-title-text a-text-bold">华伦天奴等商务包</span>
+		            			</div>
+		                    </div>
+		                </a>
+		                </div>		                      
+		            </span></li>  
+		            <!--第三件商品-->      
+		            <li class="octopus-pc-dotdv2-item octopus-pc-dotdv2-item-GS_DOTD" style="width: 216px; padding-right: 0px;"><span class="a-list-item">
+		                <div class="a-section a-spacing-none octopus-pc-dotdv2-item-block">
+		                <a class="a-link-normal octopus-pc-dotdv2-item-link" title="华歌尔等内衣促销" href="#">
+		                    <div class="a-section octopus-pc-dotdv2-item-image-section">
+		                        <div class="a-section octopus-pc-dotdv2-item-hue-shield">
+		                        </div>
+		                        <img alt="" src="shop-3.jpg" class="octopus-pc-dotdv2-item-image">
+		                    </div>
+		            		<div class="a-section octopus-pc-dotdv2-item-info">
+		            			<div class="a-section a-spacing-none octopus-pc-dotdv2-price-section">
+		            			<span class="a-size-medium a-color-price">￥48.34 - ￥5809.43</span>
+		            			</div>
+		            			<div class="a-section a-spacing-none octopus-pc-dotdv2-title-section">
+		            			<span class="a-size-medium octopus-pc-dotdv2-title-text a-text-bold">华歌尔等内衣促销</span>
+		            			</div>
+		                    </div>
+		                </a>
+		                </div>		                      
+		            </span></li>          		                                     
+		            <!--第四件商品-->          
+		            <li class="octopus-pc-dotdv2-item octopus-pc-dotdv2-item-GS_DOTD" style="width: 216px; padding-right: 2px;"><span class="a-list-item">
+		                <div class="a-section a-spacing-none octopus-pc-dotdv2-item-block">
+		                    <a class="a-link-normal octopus-pc-dotdv2-item-link" title="博朗剃须刀" href="#">
+		                    <div class="a-section octopus-pc-dotdv2-item-image-section">
+		                        <div class="a-section octopus-pc-dotdv2-item-hue-shield">
+		                        </div>
+		                        <img alt="" src="shop-4.jpg" class="octopus-pc-dotdv2-item-image">
+		                    </div>
+		                    <div class="a-section octopus-pc-dotdv2-item-info">
+		                        <div class="a-section a-spacing-none octopus-pc-dotdv2-price-section">
+		                        <span class="a-size-medium a-color-price">￥258.92 - ￥1196.08</span>
+		                        </div>
+								<div class="a-section a-spacing-none octopus-pc-dotdv2-title-section">
+								<span class="a-size-medium octopus-pc-dotdv2-title-text a-text-bold">博朗剃须刀</span>
+								</div>
+		                    </div>
+							</a>
+		                </div>
+		            </span></li>
+		            <!--第五件商品-->      
+					<li class="octopus-pc-dotdv2-item octopus-pc-dotdv2-item-PE_DOTD" style="width: 216px; padding-right: 2px;"><span class="a-list-item">
+		                <div class="a-section a-spacing-none octopus-pc-dotdv2-item-block">
+		                    <a class="a-link-normal octopus-pc-dotdv2-item-link" title="科莱丽洁面刷直降" href="#">
+		                    <div class="a-section octopus-pc-dotdv2-item-image-section">
+		                        <div class="a-section octopus-pc-dotdv2-item-hue-shield">
+		                        </div>
+		                        <img alt="" src="shop-5.jpeg" class="octopus-pc-dotdv2-item-image">
+		                    </div>
+		                    <div class="a-section octopus-pc-dotdv2-item-info">
+		                        <div class="a-section a-spacing-none octopus-pc-dotdv2-price-section">
+		                        <span class="a-size-medium a-color-price">￥130.83 - ￥548.31</span>
+		                        </div>
+		                        <div class="a-section a-spacing-none octopus-pc-dotdv2-title-section">
+		                        <span class="a-size-medium octopus-pc-dotdv2-title-text a-text-bold">科莱丽洁面刷直降</span>
+		                        </div>
+		                    </div>
+		                    </a>
+		                </div>
+		            </span></li>
+		            <!--第六件商品-->      
+		            <li class="octopus-pc-dotdv2-item octopus-pc-dotdv2-item-PE_DOTD" style="width: 216px; padding-right: 2px;"><span class="a-list-item">
+		                <div class="a-section a-spacing-none octopus-pc-dotdv2-item-block">
+		                    <a class="a-link-normal octopus-pc-dotdv2-item-link" title="居家神器挂烫|吸尘器" href="#">
+		                    <div class="a-section octopus-pc-dotdv2-item-image-section">
+		                        <div class="a-section octopus-pc-dotdv2-item-hue-shield">
+		                        </div>
+		                        <img alt="" src="shop-6.jpeg" class="octopus-pc-dotdv2-item-image">
+		                    </div>
+		                    <div class="a-section octopus-pc-dotdv2-item-info">
+		                        <div class="a-section a-spacing-none octopus-pc-dotdv2-price-section">
+		                        <span class="a-size-medium a-color-price">￥367.56 - ￥2989.33</span>
+		                        </div>
+		                        <div class="a-section a-spacing-none octopus-pc-dotdv2-title-section">
+		                        <span class="a-size-medium octopus-pc-dotdv2-title-text a-text-bold">居家神器挂烫|吸尘器</span>
+		                        </div>
+		                    </div>
+		                    </a>
+		                </div>
+		            </span></li>
+		        </ul>
+		    </div>
+		</div>
+		
+		<!--分页栏-->
+		<div class="page-normal">
+			<span class="page-prev">&lt;</span>
+			<!-- 数字1 代表当前页面-->
+			<span class="page-current">1</span>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">7</a>
+			<a href="#">8</a>
+			<a href="#">9</a>
+			……
+			<a href="#">199</a>
+			<a href="#">200</a>
+			<a href="#">&gt;</a>
+		</div>
+		
+	</body>
+</html>		
